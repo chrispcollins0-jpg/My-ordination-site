@@ -116,15 +116,15 @@ window.CONFIG = {
   },
   "extraElements": [
     {
-      "type": "scripture",
+      "type": "",
       "order": 0,
-      "reference": "John 1:1",
-      "text": "In the beginning was the Word"
+      "reference": "",
+      "text": ""
     },
     {
       "type": "imageBlock",
       "order": 0,
-      "url": "",
+      "url": "https://biloxivocations.org/wp-content/uploads/2024/05/biloxi-vocations-website-logo-white.png",
       "alt": "",
       "caption": ""
     },
