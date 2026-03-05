@@ -104,9 +104,9 @@ window.CONFIG = {
     "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3441.371944850074!2d-88.89374372535305!3d30.39718740177345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889c0eef84bd6577%3A0x905fe2e1a33a73a!2sCathedral%20of%20the%20Nativity%20of%20the%20Blessed%20Virgin%20Mary!5e0!3m2!1sen!2sus!4v1772740558321!5m2!1sen!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
   },
   "thanksgivingMass": {
-    "eyebrow": "Mass of Thanksgiving",
+    "eyebrow": "First Preached Mass",
     "heading": "Celebration Mass & Reception",
-    "description": "All are welcome to pray together the day after ordination.",
+    "description": "All are welcome to pray together at my first preached Mass the day after my ordination.",
     "parish": "St. James Catholic Church",
     "date": "June 7, 2026",
     "time": "11:00 AM ",
