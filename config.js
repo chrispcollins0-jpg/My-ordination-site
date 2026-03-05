@@ -19,15 +19,15 @@
 window.CONFIG = {
   "identity": {
     "candidateName": "Christopher Patrick Collins",
-    "eventTitle": "Diaconate Ordination — 2026",
-    "eyebrow": "Diocese of Biloxi",
-    "leadText": "With gratitude for the Lord's call and the support of family and friends, I look toward ordination to the transitional diaconate. Please keep me in your prayers as the day approaches. https://biloxivocations.org/wp-content/uploads/2024/05/biloxi-vocations-website-logo-white.png"
+    "eventTitle": "June 6th, 2026",
+    "eyebrow": "Diocese of Biloxi Transitional Diaconate Ordination",
+    "leadText": "With gratitude for the Lord's call and the support of family and friends, I look toward ordination to the transitional diaconate. Please keep me in your prayers as the day approaches. "
   },
   "announcementTitle": {
     "prefix": "Announcing the Ordination of",
     "name": "Christopher Patrick Collins",
     "suffix": "to the Sacred Order of Deacons",
-    "photoUrl": "https://ibb.co/N6sHgRVh"
+    "photoUrl": ""
   },
   "appearance": {
     "theme": "navy"
@@ -46,15 +46,15 @@ window.CONFIG = {
   },
   "sectionOrder": {
     "announcementTitle": 1,
-    "countdown": 2,
-    "hero": 1,
+    "countdown": 3,
+    "hero": 2,
     "detailsRow": 4,
     "catechesis": 5,
-    "livestream": 6,
+    "livestream": 7,
     "rsvp": 11,
-    "ordinationMass": 5,
-    "thanksgivingMass": 9,
-    "extras": 10
+    "ordinationMass": 6,
+    "thanksgivingMass": 8,
+    "extras": 9
   },
   "countdown": {
     "targetDate": "2026-06-06T10:30:00-06:00",
