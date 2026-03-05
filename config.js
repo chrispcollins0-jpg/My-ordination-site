@@ -27,7 +27,7 @@ window.CONFIG = {
     "prefix": "Announcing the Ordination of",
     "name": "Christopher Patrick Collins",
     "suffix": "to the Sacred Order of Deacons",
-    "photoUrl": "https://ibb.co/cSR0FG18"
+    "photoUrl": "https://ibb.co/N6sHgRVh"
   },
   "appearance": {
     "theme": "navy"
@@ -36,7 +36,7 @@ window.CONFIG = {
     "announcementTitle": true,
     "countdown": true,
     "hero": true,
-    "details": true,
+    "details": false,
     "intentions": true,
     "catechesis": true,
     "livestream": true,
@@ -115,12 +115,6 @@ window.CONFIG = {
     "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110132.46454612943!2d-89.1705577566406!3d30.389592599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889c16d7781b51bb%3A0x3d868fe664e8e877!2sSaint%20James%20Catholic%20Church!5e0!3m2!1sen!2sus!4v1772740597656!5m2!1sen!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
   },
   "extraElements": [
-    {
-      "type": "",
-      "order": 0,
-      "reference": "",
-      "text": ""
-    },
     {
       "type": "customText",
       "order": 0,
