@@ -27,7 +27,7 @@ window.CONFIG = {
     "prefix": "Announcing the Ordination of",
     "name": "Christopher Patrick Collins",
     "suffix": "to the Sacred Order of Deacons",
-    "photoUrl": "https://i.ibb.co/5h1Tv7PN/IMG-3503.jpg"
+    "photoUrl": "https://i.ibb.co/Z6VkR9Ls/Collins-Christopher-1604-1-photoaidcom-cropped.png"
   },
   "appearance": {
     "theme": "navy"
@@ -89,8 +89,8 @@ window.CONFIG = {
   },
   "rsvp": {
     "heading": "Stay in Touch",
-    "introText": "If you would like to receive updates or share how you are praying, please leave your contact information below. I'll keep the list focused on ordination news.",
-    "formEmbedUrl": "https://docs.google.com/forms/d/e/1FAIpQLScCI8N3WI2QHIbCI_wKzDG6k8pVN_jXTMxKjOQfwGqWJ1IjlQ/viewform?embedded=true"
+    "introText": "If you would like to contribute, my gift registry can be found here.",
+    "formEmbedUrl": "https://www.myregistry.com/wishlist/chris-collins-gulfport-ms/5282975"
   },
   "ordinationMass": {
     "eyebrow": "Mass of Ordination",
@@ -105,8 +105,8 @@ window.CONFIG = {
   },
   "thanksgivingMass": {
     "eyebrow": "Mass of Thanksgiving",
-    "heading": "Celebration Mass & Reception",
-    "description": "All are welcome to pray together the day after ordination.",
+    "heading": "First Preached Mass",
+    "description": "All are welcome to pray together at my first preached Mass on the following day.",
     "parish": "St. James Catholic Church",
     "date": "June 7, 2026",
     "time": "11:00 AM ",
