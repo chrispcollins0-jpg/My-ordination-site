@@ -36,11 +36,11 @@ window.CONFIG = {
     "announcementTitle": true,
     "countdown": true,
     "hero": true,
-    "details": false,
+    "details": true,
     "intentions": true,
     "catechesis": true,
     "livestream": true,
-    "rsvp": true,
+    "rsvp": false,
     "ordinationMass": true,
     "thanksgivingMass": true
   },
@@ -50,7 +50,7 @@ window.CONFIG = {
     "hero": 3,
     "detailsRow": 4,
     "catechesis": 5,
-    "livestream": 9,
+    "livestream": 6,
     "rsvp": 11,
     "ordinationMass": 8,
     "thanksgivingMass": 9,
@@ -122,18 +122,10 @@ window.CONFIG = {
       "text": ""
     },
     {
-      "type": "imageBlock",
+      "type": "customText",
       "order": 0,
-      "url": "https://biloxivocations.org/wp-content/uploads/2024/05/biloxi-vocations-website-logo-white.png",
-      "alt": "",
-      "caption": ""
-    },
-    {
-      "type": "imageBlock",
-      "order": 0,
-      "url": "",
-      "alt": "",
-      "caption": ""
+      "heading": "Gift Registry",
+      "body": "If you would like to contribute, you can find my gift registry here: https://www.myregistry.com/wishlist/chris-collins-gulfport-ms/5282975"
     }
   ]
 };
