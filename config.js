@@ -27,7 +27,7 @@ window.CONFIG = {
     "prefix": "Announcing the Ordination of",
     "name": "Christopher Patrick Collins",
     "suffix": "to the Sacred Order of Deacons",
-    "photoUrl": "https://i.ibb.co/Z6VkR9Ls/Collins-Christopher-1604-1-photoaidcom-cropped.png"
+    "photoUrl": "https://i.ibb.co/5h1Tv7PN/IMG-3503.jpg"
   },
   "appearance": {
     "theme": "navy"
@@ -40,7 +40,7 @@ window.CONFIG = {
     "intentions": true,
     "catechesis": true,
     "livestream": true,
-    "rsvp": false,
+    "rsvp": true,
     "ordinationMass": true,
     "thanksgivingMass": true
   },
@@ -88,9 +88,9 @@ window.CONFIG = {
     "comingSoonText": "Coming Soon — check back closer to the date."
   },
   "rsvp": {
-    "heading": "Gift Registry",
-    "introText": "If you would like to contribute, here is the link to my gift registry",
-    "formEmbedUrl": "https://www.myregistry.com/wishlist/chris-collins-gulfport-ms/5282975"
+    "heading": "Stay in Touch",
+    "introText": "If you would like to receive updates or share how you are praying, please leave your contact information below. I'll keep the list focused on ordination news.",
+    "formEmbedUrl": "https://docs.google.com/forms/d/e/1FAIpQLScCI8N3WI2QHIbCI_wKzDG6k8pVN_jXTMxKjOQfwGqWJ1IjlQ/viewform?embedded=true"
   },
   "ordinationMass": {
     "eyebrow": "Mass of Ordination",
@@ -105,8 +105,8 @@ window.CONFIG = {
   },
   "thanksgivingMass": {
     "eyebrow": "Mass of Thanksgiving",
-    "heading": "First Preached Mass",
-    "description": "All are welcome to pray together at my first preached Mass the day after my ordination.",
+    "heading": "Celebration Mass & Reception",
+    "description": "All are welcome to pray together the day after ordination.",
     "parish": "St. James Catholic Church",
     "date": "June 7, 2026",
     "time": "11:00 AM ",
