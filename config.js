@@ -18,19 +18,19 @@
 
 window.CONFIG = {
   "identity": {
-    "candidateName": "Gabriel Whitlow",
+    "candidateName": "Christopher Patrick Collins",
     "eventTitle": "Diaconate Ordination — 2026",
-    "eyebrow": "Archdiocese of Atlanta",
+    "eyebrow": "Diocese of Biloxi",
     "leadText": "With gratitude for the Lord's call and the support of family and friends, I look toward ordination to the transitional diaconate. Please keep me in your prayers as the day approaches."
   },
   "announcementTitle": {
     "prefix": "Announcing the Ordination of",
-    "name": "NAME",
+    "name": "Christopher Patrick Collins",
     "suffix": "to the Sacred Order of Deacons",
-    "photoUrl": ""
+    "photoUrl": "https://ibb.co/cSR0FG18"
   },
   "appearance": {
-    "theme": "slate"
+    "theme": "navy"
   },
   "sections": {
     "announcementTitle": true,
@@ -57,14 +57,14 @@ window.CONFIG = {
     "extras": 10
   },
   "countdown": {
-    "targetDate": "2026-05-23T10:00:00-04:00",
+    "targetDate": "2026-06-06T10:30:00-06:00",
     "label": "Countdown to Ordination",
-    "reflectionText": "I was not a fan of having a countdown timer until someone flipped the interpretation on its head for me. They saw it as the number of Masses, Holy Hours, and Rosaries left to pray beforehand. That insight convinced me to add this here."
+    "reflectionText": ""
   },
   "details": {
     "heading": "Ordination Day",
-    "dateDisplay": "May 23, 2026",
-    "body": "The Archdiocese of Atlanta has confirmed the date and location. I look forward to celebrating this day with all of you — whether in person or in spirit."
+    "dateDisplay": "June 6th, 2026",
+    "body": ""
   },
   "intentions": {
     "heading": "Prayer Intentions",
@@ -95,24 +95,24 @@ window.CONFIG = {
   "ordinationMass": {
     "eyebrow": "Mass of Ordination",
     "heading": "Diaconate Ordination",
-    "description": "The final details from the Archdiocese will be shared here, along with arrival guidance and parking notes.",
-    "parish": "St. Peter Chanel Catholic Church",
-    "date": "May 23, 2026",
-    "time": "10:00 AM Eastern",
-    "address": "11330 Woodstock Rd, Roswell, GA 30075",
-    "parking": "On-campus parking available by the Church and Schools.",
-    "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5010.256663636794!2d-84.38988440156336!3d34.055765091397916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f573111d85d80f%3A0x6bef3af4908a9b07!2sSt.%20Peter%20Chanel%20Catholic%20Church!5e0!3m2!1sen!2sus!4v1762803330253!5m2!1sen!2sus"
+    "description": "The final details from the Diocese will be shared here, along with arrival guidance and parking notes.",
+    "parish": "Cathedral of the Nativity of the Blessed Virgin Mary",
+    "date": "June 6, 2026",
+    "time": "10:30 AM",
+    "address": "870 Howard Ave, Biloxi, MS 39530",
+    "parking": "Parking available at Sacred Heart Center behind the Cathedral.  There will be a reception in the Sacred Heart Center following the Ordination.",
+    "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3441.371944850074!2d-88.89374372535305!3d30.39718740177345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889c0eef84bd6577%3A0x905fe2e1a33a73a!2sCathedral%20of%20the%20Nativity%20of%20the%20Blessed%20Virgin%20Mary!5e0!3m2!1sen!2sus!4v1772740558321!5m2!1sen!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
   },
   "thanksgivingMass": {
     "eyebrow": "Mass of Thanksgiving",
     "heading": "Celebration Mass & Reception",
     "description": "All are welcome to pray together the day after ordination.",
-    "parish": "St. Peter's Catholic Church",
-    "date": "May 24, 2026",
-    "time": "11:00 AM Eastern",
-    "address": "200 Lafayette Pkwy, LaGrange, GA 30241",
-    "parking": "Light refreshments are planned immediately after Mass.",
-    "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3344.705499647885!2d-85.03162428833699!3d33.03788847344538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x888b569b7b4a1595%3A0xa0a88297a7c80116!2sSt.%20Peter's%20Catholic%20Church!5e0!3m2!1sen!2sus!4v1762803696059!5m2!1sen!2sus"
+    "parish": "St. James Catholic Church",
+    "date": "June 7, 2026",
+    "time": "11:00 AM ",
+    "address": "366 Cowan Rd, Gulfport, MS 39507",
+    "parking": "",
+    "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110132.46454612943!2d-89.1705577566406!3d30.389592599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889c16d7781b51bb%3A0x3d868fe664e8e877!2sSaint%20James%20Catholic%20Church!5e0!3m2!1sen!2sus!4v1772740597656!5m2!1sen!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
   },
   "extraElements": [
     {
@@ -120,6 +120,20 @@ window.CONFIG = {
       "order": 0,
       "reference": "John 1:1",
       "text": "In the beginning was the Word"
+    },
+    {
+      "type": "imageBlock",
+      "order": 0,
+      "url": "",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "type": "imageBlock",
+      "order": 0,
+      "url": "",
+      "alt": "",
+      "caption": ""
     }
   ]
 };
