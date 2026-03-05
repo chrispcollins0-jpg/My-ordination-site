@@ -27,7 +27,7 @@ window.CONFIG = {
     "prefix": "Announcing the Ordination of",
     "name": "Christopher Patrick Collins",
     "suffix": "to the Sacred Order of Deacons",
-    "photoUrl": ""
+    "photoUrl": "https://i.ibb.co/5h1Tv7PN/IMG-3503.jpg"
   },
   "appearance": {
     "theme": "navy"
