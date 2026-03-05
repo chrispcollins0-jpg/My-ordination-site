@@ -88,7 +88,7 @@ window.CONFIG = {
     "comingSoonText": "Coming Soon — check back closer to the date."
   },
   "rsvp": {
-    "heading": "Stay in Touch",
+    "heading": "Gift Registry",
     "introText": "If you would like to contribute, my gift registry can be found here.",
     "formEmbedUrl": "https://www.myregistry.com/wishlist/chris-collins-gulfport-ms/5282975"
   },
@@ -118,8 +118,8 @@ window.CONFIG = {
     {
       "type": "customText",
       "order": 0,
-      "heading": "Gift Registry",
-      "body": "If you would like to contribute, you can find my gift registry here: https://www.myregistry.com/wishlist/chris-collins-gulfport-ms/5282975"
+      "heading": "",
+      "body": ""
     }
   ]
 };
