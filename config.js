@@ -90,7 +90,7 @@ window.CONFIG = {
   "rsvp": {
     "heading": "Gift Registry",
     "introText": "If you would like to contribute, my gift registry can be found here.",
-    "formEmbedUrl": "https://www.myregistry.com/wishlist/chris-collins-gulfport-ms/5282975"
+    "formEmbedUrl": "https://www.myregistry.com/giftlist/chris-collins-diaconate-ordination"
   },
   "ordinationMass": {
     "eyebrow": "Mass of Ordination",
