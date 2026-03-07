@@ -381,6 +381,70 @@
     setStatus('Disconnected from GitHub. Click Save to reconnect.', false);
   }
 
+  // ── Update availability check ──────────────────────────────────────────
+  // Uses the GitHub Releases API to fetch the latest published release from
+  // the template repo and compares its tag to the version stored in localStorage.
+  // Returns { available: bool, release: { tag, name, body, url } | null }.
+  // Result is cached per browser session so repeated panel opens don't
+  // trigger multiple API calls. A 404 (no releases yet) is silently ignored.
+  var _updateAvailable = null;   // null = not yet checked this session
+  var _latestRelease   = null;   // release metadata when an update is available
+
+  function checkForUpdates() {
+    if (_updateAvailable !== null) {
+      return Promise.resolve({ available: _updateAvailable, release: _latestRelease });
+    }
+
+    var token = localStorage.getItem(TOKEN_KEY);
+    if (!token) return Promise.resolve({ available: false, release: null });
+
+    var headers = {
+      'Authorization':        'Bearer ' + token,
+      'Accept':               'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+    };
+
+    return fetch('https://api.github.com/repos/' + TEMPLATE_REPO + '/releases/latest', { headers: headers })
+      .then(function (r) {
+        if (r.status === 404) return null;   // no releases published yet — not an error
+        return r.ok ? r.json() : null;
+      })
+      .then(function (release) {
+        if (!release || !release.tag_name) {
+          _updateAvailable = false;
+          _latestRelease   = null;
+          return { available: false, release: null };
+        }
+
+        var templateTag = release.tag_name;
+        var siteVersion = localStorage.getItem('site_version');
+
+        if (!siteVersion) {
+          // First connection — baseline to the current release tag so no
+          // spurious "update available" fires for a freshly-installed site.
+          localStorage.setItem('site_version', templateTag);
+          _updateAvailable = false;
+          _latestRelease   = null;
+          return { available: false, release: null };
+        }
+
+        _updateAvailable = (templateTag !== siteVersion);
+        _latestRelease   = _updateAvailable ? {
+          tag:  release.tag_name,
+          name: release.name || ('Update ' + release.tag_name),
+          body: release.body || '',
+          url:  release.html_url || '',
+        } : null;
+
+        return { available: _updateAvailable, release: _latestRelease };
+      })
+      .catch(function () {
+        _updateAvailable = false;
+        _latestRelease   = null;
+        return { available: false, release: null };
+      });
+  }
+
   // ── Template update helpers ────────────────────────────────────────────
 
   // Fetch one file from the public template repo (no auth needed).
@@ -539,6 +603,25 @@
         });
       })
       .then(function () {
+        // Store the new release tag so the update-available check correctly
+        // shows "up to date" until the next release is published.
+        var releaseHeaders = {
+          'Authorization':        'Bearer ' + token,
+          'Accept':               'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28',
+        };
+        return fetch('https://api.github.com/repos/' + TEMPLATE_REPO + '/releases/latest', { headers: releaseHeaders })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (release) {
+            if (release && release.tag_name) {
+              localStorage.setItem('site_version', release.tag_name);
+            }
+            _updateAvailable = null;
+            _latestRelease   = null;
+          })
+          .catch(function () { _updateAvailable = null; _latestRelease = null; });
+      })
+      .then(function () {
         waitForDeployment(token, repo, updateStartTime, updateBtn);
       })
       .catch(function (err) {
@@ -573,10 +656,11 @@
   }
 
   window.GITHUB = {
-    save:       save,
-    disconnect: disconnect,
-    connect:    connect,
-    update:     update,
+    save:            save,
+    disconnect:      disconnect,
+    connect:         connect,
+    update:          update,
+    checkForUpdates: checkForUpdates,
   };
 
 }());

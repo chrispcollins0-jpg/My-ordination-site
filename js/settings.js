@@ -48,6 +48,19 @@
     '  <button class="sp-close" id="spClose" aria-label="Close settings">&times;</button>',
     '</div>',
 
+    // Update-available banner — shown only when connected AND a newer release exists
+    '<div class="sp-update-banner" id="spUpdateBanner" style="display:none">',
+    '  <div class="sp-update-banner-icon">&#8679;</div>',
+    '  <div class="sp-update-banner-body">',
+    '    <strong id="spUpdateBannerTitle">Template update available</strong>',
+    '    <p id="spUpdateBannerDesc">A new version of this template is ready with new features or fixes.</p>',
+    '    <div class="sp-update-banner-actions">',
+    '      <a id="spUpdateBannerLink" class="sp-update-banner-link" target="_blank" rel="noopener noreferrer" style="display:none">View release notes &#8599;</a>',
+    '      <button class="sp-connect-btn" id="spUpdateBannerBtn">Update Now &rsaquo;</button>',
+    '    </div>',
+    '  </div>',
+    '</div>',
+
     // Lock banner — shown when no GitHub token is stored; hidden via JS when unlocked
     '<div class="sp-lock-banner" id="spLockBanner" style="display:none">',
     '  <div class="sp-lock-banner-icon">&#128274;</div>',
@@ -337,6 +350,46 @@
     '</div>',
   ].join('\n');
 
+  // ── Strip markdown for plain-text banner excerpts ─────────────────────
+  function stripMarkdown(text) {
+    return (text || '')
+      .replace(/#{1,6}\s+/g, '')                  // headings
+      .replace(/\*\*(.+?)\*\*/g, '$1')            // bold
+      .replace(/\*(.+?)\*/g, '$1')                // italic
+      .replace(/`(.+?)`/g, '$1')                  // inline code
+      .replace(/\[(.+?)\]\(.+?\)/g, '$1')         // links → label only
+      .replace(/^[-*+]\s+/gm, '\u2022 ')          // list markers
+      .replace(/\r?\n\r?\n/g, ' \u2013 ')         // paragraph breaks → dash
+      .replace(/\r?\n/g, ' ')                      // line breaks → space
+      .trim();
+  }
+
+  // ── Quill rich-text editor — lazy CDN load ────────────────────────────
+  // Quill is only loaded the first time a customText element's edit form is
+  // opened, so regular site visitors never download it.
+  var _quillCallbacks = [];
+  var _quillLoading   = false;
+
+  function ensureQuill(callback) {
+    if (typeof Quill !== 'undefined') { callback(); return; }
+    _quillCallbacks.push(callback);
+    if (_quillLoading) return;
+    _quillLoading = true;
+
+    var link = document.createElement('link');
+    link.rel  = 'stylesheet';
+    link.href = 'https://cdn.quilljs.com/1.3.7/quill.snow.css';
+    document.head.appendChild(link);
+
+    var script = document.createElement('script');
+    script.src = 'https://cdn.quilljs.com/1.3.7/quill.min.js';
+    script.onload = function () {
+      _quillCallbacks.forEach(function (cb) { cb(); });
+      _quillCallbacks = [];
+    };
+    document.head.appendChild(script);
+  }
+
   // ── Default values for each stock element type ─────────────────────────
   var ELEMENT_DEFAULTS = {
     imageBlock:     { type: 'imageBlock',     order: 0, url: '', alt: '', caption: '' },
@@ -365,7 +418,7 @@
     ],
     customText: [
       { path: 'heading', label: 'Section Heading', tag: 'input' },
-      { path: 'body',    label: 'Body Text',       tag: 'textarea', rows: 5 },
+      { path: 'body',    label: 'Body Text (supports bold, italic, lists, and links)', tag: 'quill' },
     ],
     prayerPartners: [
       { path: 'heading', label: 'Section Heading',        tag: 'input' },
@@ -485,6 +538,41 @@
       el.disabled = locked;
     });
 
+    // Show or hide the update-available banner (only when connected)
+    var updateBanner = document.getElementById('spUpdateBanner');
+    if (updateBanner) {
+      if (locked) {
+        updateBanner.style.display = 'none';
+      } else if (window.GITHUB && typeof window.GITHUB.checkForUpdates === 'function') {
+        window.GITHUB.checkForUpdates().then(function (result) {
+          if (!result || !result.available) { updateBanner.style.display = 'none'; return; }
+
+          // Populate banner with release metadata from GitHub
+          var titleEl = document.getElementById('spUpdateBannerTitle');
+          var descEl  = document.getElementById('spUpdateBannerDesc');
+          var linkEl  = document.getElementById('spUpdateBannerLink');
+
+          if (titleEl) {
+            titleEl.textContent = (result.release && result.release.name)
+              ? result.release.name
+              : 'Template update available';
+          }
+          if (descEl && result.release && result.release.body) {
+            var excerpt = stripMarkdown(result.release.body);
+            descEl.textContent = excerpt.length > 160
+              ? excerpt.slice(0, 157) + '\u2026'
+              : excerpt;
+          }
+          if (linkEl && result.release && result.release.url) {
+            linkEl.href         = result.release.url;
+            linkEl.style.display = '';
+          }
+
+          updateBanner.style.display = 'flex';
+        });
+      }
+    }
+
     // Wire the Connect button (use .onclick to avoid stacking listeners)
     var connectBtn = document.getElementById('spConnectBtn');
     if (connectBtn) {
@@ -513,11 +601,17 @@
       var title  = TYPE_LABELS[el.type] || el.type;
 
       var fieldsHtml = fields.map(function (f) {
-        var ctrl = f.tag === 'textarea'
-          ? '<textarea rows="' + (f.rows || 3) + '" data-edit-path="' + f.path + '"' +
-            (f.placeholder ? ' placeholder="' + f.placeholder + '"' : '') + '></textarea>'
-          : '<input type="text" data-edit-path="' + f.path + '"' +
+        var ctrl;
+        if (f.tag === 'quill') {
+          // Quill attaches to a plain div — the library manages its own DOM
+          ctrl = '<div class="sp-quill-container" data-quill-path="' + f.path + '"><div></div></div>';
+        } else if (f.tag === 'textarea') {
+          ctrl = '<textarea rows="' + (f.rows || 3) + '" data-edit-path="' + f.path + '"' +
+            (f.placeholder ? ' placeholder="' + f.placeholder + '"' : '') + '></textarea>';
+        } else {
+          ctrl = '<input type="text" data-edit-path="' + f.path + '"' +
             (f.placeholder ? ' placeholder="' + f.placeholder + '"' : '') + '>';
+        }
         return '<label class="sp-field"><span>' + f.label + '</span>' + ctrl + '</label>';
       }).join('\n');
 
@@ -529,7 +623,7 @@
         fieldsHtml || '<p class="sp-hint">No editable fields for this type.</p>',
       ].join('\n');
 
-      // Populate current values
+      // Populate current values for plain inputs / textareas
       list.querySelectorAll('[data-edit-path]').forEach(function (input) {
         var val = el[input.dataset.editPath];
         input.value = Array.isArray(val) ? val.join('\n') : (val == null ? '' : val);
@@ -543,6 +637,35 @@
             ? input.value.split('\n').map(function (s) { return s.trim(); }).filter(Boolean)
             : input.value;
           window.PAGE.render();
+        });
+      });
+
+      // Initialize Quill rich-text editors (lazy-loaded on first use)
+      fields.forEach(function (f) {
+        if (f.tag !== 'quill') return;
+        var wrapper = list.querySelector('[data-quill-path="' + f.path + '"]');
+        if (!wrapper) return;
+        var editorDiv = wrapper.querySelector('div');
+
+        ensureQuill(function () {
+          // Guard: user may have clicked Back before Quill finished loading
+          if (!list.contains(wrapper)) return;
+          var q = new Quill(editorDiv, {
+            modules: {
+              toolbar: [
+                ['bold', 'italic', 'underline'],
+                [{ list: 'ordered' }, { list: 'bullet' }],
+                ['link'],
+                ['clean'],
+              ],
+            },
+            theme: 'snow',
+          });
+          if (el[f.path]) q.clipboard.dangerouslyPasteHTML(el[f.path]);
+          q.on('text-change', function () {
+            el[f.path] = q.root.innerHTML;
+            window.PAGE.render();
+          });
         });
       });
 
@@ -798,6 +921,16 @@
 
     bindTabs(panel);
     bindInputs(panel);
+
+    // Update-available banner button
+    var updateBannerBtn = document.getElementById('spUpdateBannerBtn');
+    if (updateBannerBtn) {
+      updateBannerBtn.addEventListener('click', function () {
+        if (window.GITHUB && typeof window.GITHUB.update === 'function') {
+          window.GITHUB.update();
+        }
+      });
+    }
 
     // Export / Import / Update buttons
     var exportBtn = document.getElementById('spExportBtn');
