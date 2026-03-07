@@ -130,7 +130,7 @@ window.CONFIG = {
     {
       "type": "imageBlock",
       "order": 2,
-      "url": "https://i.ibb.co/7JBryLCV/photo-output.jpg",
+      "url": "https://i.ibb.co/ccbyp20c/photo-output-1.jpg",
       "alt": "Highlights",
       "caption": ""
     }
