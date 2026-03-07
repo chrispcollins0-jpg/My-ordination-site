@@ -40,7 +40,7 @@ window.CONFIG = {
     "intentions": true,
     "catechesis": true,
     "livestream": true,
-    "rsvp": true,
+    "rsvp": false,
     "ordinationMass": true,
     "thanksgivingMass": true
   },
@@ -120,6 +120,12 @@ window.CONFIG = {
       "order": 0,
       "heading": "About Me",
       "body": "My name is Chris Collins and I am a seminarian for the Catholic Diocese of Biloxi. I grew up Catholic but never truly took my faith seriously until I was in high school. I learned all about the faith as a child, but it wasn’t until high school that I truly encountered the Lord and began to really practice my faith. I began to discern the priesthood when I was a junior in high school after being inspired by the witness of a holy priest. The thought of laying my life down for the Church filled me with joy and gave me a sense of purpose in my life. I saw the great need that the Church has for priests and I felt that God was calling me to be a part of the solution.\n\nSince being in seminary, I have grown substantially both in my spiritual life and all around as a Catholic man. My desire to serve God as a priest has also grown throughout my time in seminary and I’ve been able to see myself in the role of the priest. Seminary has allowed me to live with and discern with men from all over the south striving for holiness.\n\nIn my free time, I enjoy staying active and playing sports including golf, disc golf, soccer, and football. One of my favorite saints is St John Vianney,  because he is a great example of how a priest should live and I hope and pray that I will have the same love for the priesthood that he had. I also have a devotion to St. Therese of Lisieux and admire her \"little way\" of holiness. "
+    },
+    {
+      "type": "customText",
+      "order": 0,
+      "heading": "Gift Registry",
+      "body": "<p>If you'd like to contribute, my gift registry can be found here:<span class=\"ql-cursor\">﻿</span></p><p><a href=\"https://www.myregistry.com/giftlist/christopher-collins-diaconate-ordination\" rel=\"noopener noreferrer\" target=\"_blank\"><strong>https://www.myregistry.com/giftlist/christopher-collins-diaconate-ordination</strong></a></p>"
     }
   ]
 };
