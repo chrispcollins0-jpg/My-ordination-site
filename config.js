@@ -125,7 +125,7 @@ window.CONFIG = {
       "type": "customText",
       "order": 2,
       "heading": "Gift Registry",
-      "body": "<p>If you would like to contribure, my gift registry can be found here:</p><p><a href=\"https://www.myregistry.com/giftlist/christopher-collins-diaconate-ordination\" rel=\"noopener noreferrer\" target=\"_blank\"><strong>https://www.myregistry.com/giftlist/christopher-collins-diaconate-ordination</strong></a></p>"
+      "body": "<p>If you would like to contribute, my gift registry can be found here:</p><p><a href=\"https://www.myregistry.com/giftlist/christopher-collins-diaconate-ordination\" rel=\"noopener noreferrer\" target=\"_blank\"><strong>https://www.myregistry.com/giftlist/christopher-collins-diaconate-ordination</strong></a></p>"
     },
     {
       "type": "imageBlock",
